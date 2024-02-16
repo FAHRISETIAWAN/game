@@ -4,20 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candy Crush Jobfy</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="candy.css">
     <script src="candy.js"></script>
-    <style>
-        /* Add responsive styles here */
-        @media screen and (max-width: 768px) {
-            /* Example: Adjust styles for screens up to 768px width */
-            .row {
-                display: block;
-            }
-            .col-md-4 {
-                width: 100%;
-            }
-        }
-    </style>
+
 </head>
 <body>
     <div id="progressContainer">
@@ -25,7 +15,7 @@
     </div>
 
     <h1>Candy Crush Jobfy</h1>
-    <div id="board"></div>
+    <div id="board" class="col-md-9 col-xs-12"></div>
     <div id="gameOverPopup" class="popup">
         <div class="popup-content">
             <span id="gameOverMessage">Game Over!</span>
@@ -33,8 +23,8 @@
         </div>
     </div>
     
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-12 col-xs-12 d-flex justify-content-center">
             <button id="startButton">START</button>
             <!-- <button id="restartButton">RESTART</button> -->
         </div>
