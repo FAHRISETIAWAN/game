@@ -1,13 +1,8 @@
 
 var candies = ["Blue", "Orange", "Green", "Yellow", "Red", "Purple"];
 var board = [];
-var rows = 9;
-var columns = 9;
-var score = 0;
-
 var currTile;
 var otherTile;
-
 
 window.onload = function() {
     startGame();
@@ -18,13 +13,40 @@ window.onload = function() {
         slideCandy();
         generateCandy();
     }, 100);
+    document.getElementById("scoreContainer").style.display = "none";
+    document.getElementById("startButton").addEventListener("click", startGameTimer);
 }
 
 function randomCandy() {
     return candies[Math.floor(Math.random() * candies.length)]; //0 - 5.99
 }
 
+
+function startGameTimer() {
+    // Set the duration of the game (1 minute = 60 seconds)
+    var durationInSeconds = 60;
+
+    score = 0; // Set score to 0 when starting the game
+
+    // Start the countdown timer
+    var timer = setInterval(function() {
+        durationInSeconds--;
+        updateProgressBar(durationInSeconds);
+        if (durationInSeconds <= 0) {
+            // If time is up, clear the timer and show game over popup
+            clearInterval(timer);
+            showGameOverPopup();
+        }
+    }, 1000); // Update every second
+}
+
+
 function startGame() {
+
+    rows = 9;
+    columns = 9;
+    score = 0;
+    sessionStorage.removeItem("score");
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
@@ -202,3 +224,48 @@ function generateCandy() {
         }
     }
 }
+
+function startGameTimer() {
+    // Set the duration of the game (1 minute = 60 seconds)
+    var durationInSeconds = 60;
+    
+   
+    // Start the countdown timer
+    var timer = setInterval(function() {
+        durationInSeconds--;
+        updateProgressBar(durationInSeconds);
+        if (durationInSeconds <= 0) {
+            // If time is up, clear the timer and show game over popup
+            clearInterval(timer);
+            showGameOverPopup();
+        }
+    }, 1000); // Update every second
+}
+
+// Function to update the progress bar based on remaining time
+function updateProgressBar(durationInSeconds) {
+    var progress = (durationInSeconds / 60) * 100; // Calculate progress percentage
+    document.getElementById("progressBar").style.width = progress + "%"; // Update progress bar width
+}
+
+var token = "xxx.xxx.xxx";
+
+function showGameOverPopup() {
+    sessionStorage.removeItem("score");
+    var popup = document.getElementById("gameOverPopup");
+    var message = document.getElementById("gameOverMessage");
+    
+    if (score >= 1000) {
+        message.textContent = "Congratulations!\nToken: " + token;
+    } else {
+        message.textContent = "Game Over!";
+    }
+
+    popup.style.display = "block";
+}
+
+function closePopup() {
+    var popup = document.getElementById("gameOverPopup");
+    popup.style.display = "none";
+}
+

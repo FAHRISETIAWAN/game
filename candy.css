@@ -1,5 +1,5 @@
 body {
-    background: url("./bg3.png") no-repeat right center fixed;
+    background: url("./bg3.png") no-repeat left  center fixed;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -9,15 +9,85 @@ body {
 #board {
     width: 450px;
     height: 450px;
-    background-color: lightblue;
-    border: 5px solid slategray;
+    background-color: gold;
+    border: 5px solid gold; /* Change border color to gold */
     border-radius: 10px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #board img {
     width: 50px;
     height: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    width: 45%; /* Mengatur lebar tombol menjadi 45% dari parent element */
+    max-width: 150px;
+    background-color: #fc9905; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none; /* Menghapus border */
+    border-radius: 5px; /* Membuat sudut melengkung */
+    cursor: pointer; /* Mengubah ikon kursor saat mengarah ke tombol */
+    transition: background-color 0.3s; /* Efek transisi ketika mengarah ke tombol */
+    margin: 5px; /* Jarak antar tombol */
+    margin-top:20px;
+}
+
+/* Efek hover */
+button:hover {
+    background-color: #9e6003; /* Ubah warna latar belakang saat hover */
+}
+
+button {
+    border-color: gold; /* Warna border */
+}
+
+#progressContainer {
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+
+}
+
+#progressBar {
+    height: 100%;
+    border-radius:50px;
+    background-color: #fc9905;
+    width: 100%; /* Initial width, will be adjusted dynamically */
+    transition: width 1s linear; /* Smooth animation for width changes */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    z-index: 9999;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
 }
