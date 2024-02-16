@@ -1,44 +1,52 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Candy Crush Jobfy</title>
-        <link rel="stylesheet" href="candy.css">
-        <script src="candy.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Crush Jobfy</title>
+    <link rel="stylesheet" href="candy.css">
+    <script src="candy.js"></script>
+    <style>
+        /* Add responsive styles here */
+        @media screen and (max-width: 768px) {
+            /* Example: Adjust styles for screens up to 768px width */
+            .row {
+                display: block;
+            }
+            .col-md-4 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
 
-    <body>
-        <div id="progressContainer">
-            <div id="progressBar"></div>
+    <h1>Candy Crush Jobfy</h1>
+    <div id="board"></div>
+    <div id="gameOverPopup" class="popup">
+        <div class="popup-content">
+            <span id="gameOverMessage">Game Over!</span>
+            <button onclick="closePopup()">Close</button>
         </div>
-
-        <h1>Candy Crush Jobfy</h1>
-        <div id="board"></div>
-        <div id="gameOverPopup" class="popup">
-            <div class="popup-content">
-                <span id="gameOverMessage">Game Over!</span>
-                <button onclick="closePopup()">Close</button>
-            </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <button id="startButton">START</button>
+            <!-- <button id="restartButton">RESTART</button> -->
         </div>
-        
-        <div class="row">
-            <div class="col-md-4">
-                <button id="startButton">START</button>
-                <!-- <button id="restartButton">RESTART</button> -->
-            </div>
-
-        </div>
-        <h1 id="scoreContainer" style="display: none;">Score: <span id="score">0</span></h1>
-        <script>
-            // Menambahkan event listener untuk tombol "START"
-            document.getElementById("startButton").addEventListener("click", function() {
-                // Memulai game timer dan menampilkan teks skor
-                startGameTimer();
-                document.getElementById("score").textContent = "0";
-                document.getElementById("scoreContainer").style.display = "block";
-            });        
-        </script>
-    </body>
+    </div>
+    <h1 id="scoreContainer" style="display: none;">Score: <span id="score">0</span></h1>
+    <script>
+        // Add JavaScript code here
+        document.getElementById("startButton").addEventListener("click", function() {
+            startGameTimer();
+            document.getElementById("score").textContent = "0";
+            document.getElementById("scoreContainer").style.display = "block";
+        });
+    </script>
+</body>
 </html>
