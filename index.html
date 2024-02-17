@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Candy Crush Jobfy</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="candy.css">
     <script src="candy.js"></script>
-
 </head>
 <body>
     <div id="progressContainer">
@@ -15,23 +14,27 @@
     </div>
 
     <h1>Candy Crush Jobfy</h1>
-    <div id="board" class="col-md-9 col-xs-12"></div>
-    <div id="gameOverPopup" class="popup">
-        <div class="popup-content">
-            <span id="gameOverMessage">Game Over!</span>
-            <button onclick="closePopup()">Close</button>
+
+        <div class="row">
+            <div id="board"></div>
+            <div id="gameOverPopup" class="popup">
+                <div class="popup-content">
+                    <span id="gameOverMessage">Game Over!</span>
+                    <button onclick="closePopup()">Close</button>
+                </div>
+            </div>
         </div>
-    </div>
+        
+        <div class="row justify-content-center">
+            <button id="startButton" class="btn btn-primary">START</button>
+        </div>
+        
+        <div class="row justify-content-center">
+            <h1 id="scoreContainer" style="display: none;">Score: <span id="score">0</span></h1>
+        </div>
+  
     
-    <div class="row" style="width: 100%;">
-        <div class="col-md-12 col-xs-12 d-flex justify-content-center">
-            <button id="startButton">START</button>
-            <!-- <button id="restartButton">RESTART</button> -->
-        </div>
-    </div>
-    <h1 id="scoreContainer" style="display: none;">Score: <span id="score">0</span></h1>
     <script>
-        // Add JavaScript code here
         document.getElementById("startButton").addEventListener("click", function() {
             startGameTimer();
             document.getElementById("score").textContent = "0";

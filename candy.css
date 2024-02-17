@@ -6,9 +6,20 @@ body {
     text-align: center;
 }
 
+/* CSS untuk layar besar (desktop) */
+
+
+/* CSS untuk layar kecil (seluler) */
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+
 #board {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     background-color: gold;
     border: 5px solid gold; /* Change border color to gold */
     border-radius: 10px;
@@ -17,6 +28,7 @@ body {
     flex-wrap: wrap;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 
 #board img {
     width: 50px;
@@ -90,4 +102,35 @@ button {
 
 .popup-content button:hover {
     background-color: #0056b3;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Tambahan aturan untuk tampilan hp */
+    
+    #board {
+        width: 230px; /* Mengubah lebar papan permainan menjadi 90% dari lebar layar */
+        height: 230px; /* Mengubah tinggi papan permainan menjadi otomatis */
+    }
+    
+    #board img {
+        width: 25px; /* Mengubah lebar gambar di dalam papan permainan */
+        height: 25px; /* Mengubah tinggi gambar di dalam papan permainan */
+    }
+
+    button {
+        width: 40%; /* Mengubah lebar tombol menjadi 90% dari parent element */
+        max-width: none; /* Menghapus batasan lebar maksimum tombol */
+    }
+
+    #progressContainer {
+        margin-top: 5px; /* Mengubah jarak atas progress container */
+    }
+
+    .popup {
+        padding: 10px; /* Mengurangi padding pop-up */
+    }
+
+    .popup-content button {
+        padding: 8px 16px; /* Mengurangi padding tombol di dalam pop-up */
+    }
 }
