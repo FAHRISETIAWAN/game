@@ -79,39 +79,23 @@ function startGame() {
 }
 
 function touchStart(event) {
-    // Mengambil elemen yang sedang disentuh
+    console.log("Touch start");
+    event.preventDefault();
     currTile = event.target;
-    // Menyimpan posisi awal sentuhan
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
 }
 
 function touchMove(event) {
-    event.preventDefault(); // Mencegah aksi bawaan dari browser
-    // Mengambil posisi sentuhan saat ini
-    var touchX = event.touches[0].clientX;
-    var touchY = event.touches[0].clientY;
-
-    // Menghitung jarak perpindahan sentuhan
-    var deltaX = touchX - startX;
-    var deltaY = touchY - startY;
-
-    // Menyimpan posisi sentuhan saat ini untuk digunakan di touchEnd
-    lastX = touchX;
-    lastY = touchY;
-
-    // Lakukan sesuatu dengan perpindahan sentuhan, misalnya perpindahan ubin
-    // Jangan lupa untuk mengupdate posisi awal sentuhan agar bisa dihitung perpindahan selanjutnya
-    startX = touchX;
-    startY = touchY;
+    console.log("Touch move");
+    event.preventDefault();
 }
 
 function touchEnd(event) {
-    // Mengambil elemen yang dilepaskan sentuhnya
-    otherTile = document.elementFromPoint(lastX, lastY);
-    // Proses pertukaran elemen jika valid
+    console.log("Touch end");
+    event.preventDefault();
+    otherTile = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
     dragEnd();
 }
+
 
 
 function dragStart() {
