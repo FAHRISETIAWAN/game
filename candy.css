@@ -108,13 +108,13 @@ button {
     /* Tambahan aturan untuk tampilan hp */
     
     #board {
-        width: 230px; /* Mengubah lebar papan permainan menjadi 90% dari lebar layar */
-        height: 230px; /* Mengubah tinggi papan permainan menjadi otomatis */
+        width: 280px; /* Mengubah lebar papan permainan menjadi 90% dari lebar layar */
+        height: 280px; /* Mengubah tinggi papan permainan menjadi otomatis */
     }
     
     #board img {
-        width: 25px; /* Mengubah lebar gambar di dalam papan permainan */
-        height: 25px; /* Mengubah tinggi gambar di dalam papan permainan */
+        width: 30px; /* Mengubah lebar gambar di dalam papan permainan */
+        height: 30px; /* Mengubah tinggi gambar di dalam papan permainan */
     }
 
     button {
@@ -133,4 +133,8 @@ button {
     .popup-content button {
         padding: 8px 16px; /* Mengurangi padding tombol di dalam pop-up */
     }
+}
+
+.tile {
+    touch-action: manipulation; /* Mencegah scroll atau zoom saat menyentuh */
 }

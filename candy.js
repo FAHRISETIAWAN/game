@@ -63,6 +63,13 @@ function startGame() {
             tile.addEventListener("drop", dragDrop); //dropping a candy over another candy
             tile.addEventListener("dragend", dragEnd); //after drag process completed, we swap candies
 
+
+            // Mengganti event listener drag dengan touch events
+            tile.addEventListener("touchstart", touchStart); 
+            tile.addEventListener("touchmove", touchMove);  
+            tile.addEventListener("touchend", touchEnd); 
+
+
             document.getElementById("board").append(tile);
             row.push(tile);
         }
@@ -71,6 +78,22 @@ function startGame() {
 
     console.log(board);
 }
+
+function touchStart(event) {
+    event.preventDefault();
+    // Logika awal sentuhan
+}
+
+function touchMove(event) {
+    event.preventDefault();
+    // Logika pergerakan sentuhan
+}
+
+function touchEnd(event) {
+    event.preventDefault();
+    // Logika akhir sentuhan
+}
+
 
 function dragStart() {
     //this refers to tile that was clicked on for dragging
